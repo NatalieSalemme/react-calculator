@@ -53,8 +53,12 @@ input {
 #id {
   color:white;
 }
-
-
+.btn {
+  outline: none;
+}
+.btn:active {
+  background-color: lightgray;
+}
 div > span {
   color: white;
   font-size: 2em;
