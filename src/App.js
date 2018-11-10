@@ -5,12 +5,24 @@ import ButtonsList from './ButtonsList';
 
 class App extends Component {
   state = {
-    blackBox: [2]
+    blackBox: [2, '+', 46]
   }
   handleClick = (e) => {
     this.setState(prevState => ({
       blackBox: [prevState.blackBox, e]
     }));
+  }
+  onEvaluate = () => {
+    const blackBox = eval(this.state.blackBox.join(''));
+    console.log(blackBox);
+    this.setState({
+      blackBox
+    });
+  }
+  onClear = () => {
+    this.setState({
+      blackBox: '0'
+    });
   }
   render() {
     return (
@@ -19,7 +31,9 @@ class App extends Component {
         <div className="display">
         <span id="display-number">{this.state.blackBox}</span>
         </div>
-        <ButtonsList handleClick={this.handleClick}/>
+        <ButtonsList handleClick={this.handleClick}
+        onEvaluate={this.onEvaluate}
+        onClear={this.onClear}/>
 </div>
     );
   }
