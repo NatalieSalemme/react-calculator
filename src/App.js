@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ButtonsList from './ButtonsList';
 
 class App extends Component {
   state = {
-    blackBox: [2, '+', 46]
+    blackBox: []
   }
   handleClick = (e) => {
-    this.setState(prevState => ({
-      blackBox: [prevState.blackBox, e]
-    }));
+
+
+      this.setState(prevState => ({
+        blackBox: [prevState.blackBox, e]
+      }));
+
+
   }
   onEvaluate = () => {
-    const blackBox = eval(this.state.blackBox.join(''));
+    let blackBox = eval(this.state.blackBox.join(''));
     console.log(blackBox);
     this.setState({
       blackBox
@@ -21,7 +24,7 @@ class App extends Component {
   }
   onClear = () => {
     this.setState({
-      blackBox: '0'
+      blackBox: []
     });
   }
   render() {
@@ -29,7 +32,9 @@ class App extends Component {
       <div className="calculator-box" id="calculator display" name="display">
 
         <div className="display">
-        <span id="display-number">{this.state.blackBox}</span>
+        <span id="display-number">
+        {this.state.blackBox.length == 0 ? '0' : this.state.blackBox}
+        </span>
         </div>
         <ButtonsList handleClick={this.handleClick}
         onEvaluate={this.onEvaluate}
