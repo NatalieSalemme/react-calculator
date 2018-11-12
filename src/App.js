@@ -8,18 +8,23 @@ class App extends Component {
   }
   handleClick = (e) => {
 
+    if(this.state.blackBox < 1) {
+      this.setState({
+        blackBox: [e]
+      });
+    } else {
+      this.setState({
+        blackBox: [...this.state.blackBox, e]
+      });
 
-      this.setState(prevState => ({
-        blackBox: [prevState.blackBox, e]
-      }));
-
-
+    }
   }
   onEvaluate = () => {
-    let blackBox = eval(this.state.blackBox.join(''));
-    console.log(blackBox);
+    let result = this.state.blackBox.join('');
+    let evaluate = eval(result);
+    console.log(evaluate);
     this.setState({
-      blackBox
+      blackBox: [evaluate]
     });
   }
   onClear = () => {
