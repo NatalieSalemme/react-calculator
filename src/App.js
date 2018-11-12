@@ -7,7 +7,11 @@ class App extends Component {
     blackBox: []
   }
   handleClick = (e) => {
-
+    if(e == 'x') {
+      e = '*'
+    } else if (e == '%') {
+      e = '/';
+    }
     if(this.state.blackBox < 1) {
       this.setState({
         blackBox: [e]
@@ -24,7 +28,7 @@ class App extends Component {
     let evaluate = eval(result);
     console.log(evaluate);
     this.setState({
-      blackBox: [evaluate]
+      blackBox: [evaluate.toString()]
     });
   }
   onClear = () => {
