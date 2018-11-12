@@ -7,9 +7,9 @@ class App extends Component {
     blackBox: []
   }
   handleClick = (e) => {
-    if(e == 'x') {
+    if(e === 'x') {
       e = '*'
-    } else if (e == '%') {
+    } else if (e === '%') {
       e = '/';
     }
     if(this.state.blackBox < 1) {
@@ -31,9 +31,15 @@ class App extends Component {
       blackBox: [evaluate.toString()]
     });
   }
-  onClear = () => {
+  onAllClear = () => {
     this.setState({
       blackBox: []
+    });
+  }
+  onClear = () => {
+    let pop = this.state.blackBox.slice(0, this.state.blackBox.length - 1);
+    this.setState({
+      blackBox: pop
     });
   }
   render() {
@@ -42,11 +48,12 @@ class App extends Component {
 
         <div className="display">
         <span id="display-number">
-        {this.state.blackBox.length == 0 ? '0' : this.state.blackBox}
+        {this.state.blackBox.length === 0 ? '0' : this.state.blackBox}
         </span>
         </div>
         <ButtonsList handleClick={this.handleClick}
         onEvaluate={this.onEvaluate}
+        onAllClear={this.onAllClear}
         onClear={this.onClear}/>
 </div>
     );
