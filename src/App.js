@@ -50,9 +50,17 @@ class App extends Component {
     });
   }
   handleDecimal = (e) => {
-    console.log('decimal clicked');
-    if(this.state.blackBox.includes('.')) {
+    if(this.state.blackBox.includes('.')
+    && !this.state.blackBox.includes('*')
+    && !this.state.blackBox.includes('/')
+    && !this.state.blackBox.includes('+')
+    && !this.state.blackBox.includes('-')) {
       console.log('already has decimal');
+    } else if(this.state.blackBox.length === 0
+        && this.state.blackBox[0] === '0'){
+      this.setState({
+        blackBox: ['0', e]
+      });
     } else {
       this.setState({
         blackBox: [...this.state.blackBox, e]
