@@ -1,3 +1,7 @@
+@font-face{
+ font-family:'digital-clock-font';
+ src: url('digital-7.ttf');
+}
 .buttonsList {
   display: flex;
   width: 280px;
@@ -29,6 +33,10 @@ input {
   justify-content: flex-end;
   flex-wrap: nowrap;
   border-radius: 10px 10px 0 0;
+}
+#display {
+  font-family: 'digital-clock-font';
+  font-size: 44px;
 }
 
 .calculator-box {
