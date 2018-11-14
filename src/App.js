@@ -12,6 +12,7 @@ class App extends Component {
     } else if (e === '%') {
       e = '/';
     }
+
     if(this.state.blackBox < 1) {
       this.setState({
         blackBox: [e]
@@ -26,10 +27,16 @@ class App extends Component {
   onEvaluate = () => {
     let result = this.state.blackBox.join('');
     let evaluate = eval(result);
-    console.log(evaluate);
-    this.setState({
-      blackBox: [evaluate.toString()]
-    });
+    if(isNaN(evaluate)) {
+      this.setState({
+        blackBox: 'ERROR'
+      });
+    } else {
+      this.setState({
+        blackBox: [evaluate.toString()]
+      });
+    }
+
   }
   onAllClear = () => {
     this.setState({
@@ -42,19 +49,32 @@ class App extends Component {
       blackBox: pop
     });
   }
-  render() {
-    return (
-      <div className="calculator-box" id="calculator display" name="display">
+  handleDecimal = (e) => {
+    console.log('decimal clicked');
+    if(this.state.blackBox.includes('.')) {
+      console.log('already has decimal');
+    } else {
+      this.setState({
+        blackBox: [...this.state.blackBox, e]
+      });
+    }
 
-        <div className="display">
-        <span id="display-number">
+  }
+  render() {
+    let button = 'Buttons';
+    return (
+      <div className="calculator-box" id="calculator" name="display">
+
+        <div id="display-container">
+        <span id="display">
         {this.state.blackBox.length === 0 ? '0' : this.state.blackBox}
         </span>
         </div>
         <ButtonsList handleClick={this.handleClick}
         onEvaluate={this.onEvaluate}
         onAllClear={this.onAllClear}
-        onClear={this.onClear}/>
+        onClear={this.onClear}
+        handleDecimal={this.handleDecimal}/>
 </div>
     );
   }

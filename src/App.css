@@ -10,8 +10,9 @@
 #zero{
     border-radius: 0 0 0 10px;
 }
-#equals-sign {
+#equals{
   border-radius: 0 0 10px;
+  flex-grow: 1;
 }
 input {
   font-size: 2em;
@@ -19,7 +20,7 @@ input {
   border: 1px solid black;
   flex-basis: 25%;
 }
-.display {
+#display-container {
   background-color: black;
   width: 280px;
   height: 90px;
@@ -44,10 +45,7 @@ input {
   border-radius: 10px;
 
 }
-#equals-sign {
-  flex-grow: 1;
-}
-.compute, #equals-sign {
+.compute, #equals {
   background-color: #ffbf80;
 }
 #id {
