@@ -21,12 +21,12 @@ class App extends Component {
         this.setState({
           blackBox: [e]
         });
-      } else if (this.state.blackBox.length > 6) {
+      } else if (this.state.blackBox.length > 10) {
         this.setState({
           blackBox: ['ERROR'],
           error: true
         });
-        console.log('over 6');
+        console.log('over 10');
       } else {
         this.setState({
           blackBox: [...this.state.blackBox, e]
@@ -38,15 +38,18 @@ class App extends Component {
   }
   onEvaluate = () => {
     let result = this.state.blackBox.join('');
-    let evaluate = eval(result);
-    if(this.state.blackBox.length > 5) {
+    let evaluate = Math.round(1000000 * eval(result)) / 1000000;
+    console.log(evaluate.length);
+    if(evaluate.length > 15) {
       this.setState({
-        blackBox: ['ERROR']
+        blackBox: ['ERROR'],
+        error: true
       });
     } else {
       this.setState({
         blackBox: [evaluate.toString()]
       });
+      console.log('state is ' + typeof this.state.blackBox);
     }
 
   }
@@ -82,7 +85,6 @@ class App extends Component {
 
   }
   render() {
-    let button = 'Buttons';
     return (
       <div className="calculator-box" id="calculator" name="display">
 
