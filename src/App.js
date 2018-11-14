@@ -17,6 +17,11 @@ class App extends Component {
       this.setState({
         blackBox: [e]
       });
+    } else if (this.state.blackBox.length > 6) {
+      this.setState({
+        blackBox: ['ERROR']
+      });
+      console.log('over 6');
     } else {
       this.setState({
         blackBox: [...this.state.blackBox, e]
@@ -27,9 +32,9 @@ class App extends Component {
   onEvaluate = () => {
     let result = this.state.blackBox.join('');
     let evaluate = eval(result);
-    if(isNaN(evaluate)) {
+    if(this.state.blackBox.length > 5) {
       this.setState({
-        blackBox: 'ERROR'
+        blackBox: ['ERROR']
       });
     } else {
       this.setState({
