@@ -69,5 +69,8 @@ div > span {
   color: white;
   font-size: 2em;
   padding-right: .2em;
-
+}
+.error-message {
+  text-align: center;
+  color: red;
 }

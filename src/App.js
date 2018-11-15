@@ -39,7 +39,6 @@ class App extends Component {
     try {
     let result = this.state.blackBox.join('');
     let evaluate = (Math.round(1000000 * eval(result)) / 1000000).toString();
-    console.log(typeof Number(evaluate) === 'number');
     if (evaluate.length > 13) {
       this.setState({
         blackBox: ['ERROR'],
@@ -47,7 +46,7 @@ class App extends Component {
       });
     } else {
       this.setState({
-        blackBox: [evaluate],
+        blackBox: [...evaluate.toString()],
       });
     }
   } catch(error) {
@@ -55,7 +54,7 @@ class App extends Component {
         errorMessage: error.message,
         error: true
       });
-
+      console.error('there was an error', error.message);
   }
   };
   onAllClear = () => {
@@ -95,7 +94,7 @@ class App extends Component {
   render() {
     return (
       <div className="calculator-box" id="calculator" name="display">
-          <div>{this.state.errorMessage}</div>
+          <p className="error-message">{this.state.errorMessage}</p>
           <div id="display-container">
 
           <span id="display">
