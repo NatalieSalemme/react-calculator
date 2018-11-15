@@ -10,7 +10,7 @@ class App extends Component {
   };
   handleClick = e => {
     if (this.state.error) {
-      console.log('there is an error');
+      console.error('there is an error');
     } else {
       if (e === 'x') {
         e = '*';
@@ -26,6 +26,7 @@ class App extends Component {
         this.setState({
           blackBox: ['ERROR'],
           error: true,
+          errorMessage: 'Input is too large'
         });
         console.log('over 10');
       } else {
@@ -43,6 +44,7 @@ class App extends Component {
       this.setState({
         blackBox: ['ERROR'],
         error: true,
+        errorMessage: 'Output is too large'
       });
     } else {
       this.setState({
@@ -54,7 +56,6 @@ class App extends Component {
         errorMessage: error.message,
         error: true
       });
-      console.error('there was an error', error.message);
   }
   };
   onAllClear = () => {
@@ -80,7 +81,9 @@ class App extends Component {
       !this.state.blackBox.includes('+') &&
       !this.state.blackBox.includes('-')
     ) {
-      console.log('already has decimal');
+      this.setState({
+        errorMessage: 'Unable to enter two decimals in a row'
+      });
     } else if (this.state.blackBox.length === 0) {
       this.setState({
         blackBox: ['0', '.'],

@@ -51,6 +51,7 @@ input {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  padding-bottom: 5%;
 
 }
 .compute, #equals {
