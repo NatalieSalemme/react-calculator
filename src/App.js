@@ -21,7 +21,7 @@ class App extends Component {
         this.setState({
           blackBox: [e]
         });
-      } else if (this.state.blackBox.length > 10) {
+      } else if (this.state.blackBox.length > 12) {
         this.setState({
           blackBox: ['ERROR'],
           error: true
@@ -37,17 +37,18 @@ class App extends Component {
 
   }
   onEvaluate = () => {
+
     let result = this.state.blackBox.join('');
-    let evaluate = Math.round(1000000 * eval(result)) / 1000000;
-    console.log(evaluate.length);
-    if(evaluate.length > 15) {
+    let evaluate = (Math.round(1000000 * eval(result)) / 1000000).toString();
+
+    if(evaluate.length > 13) {
       this.setState({
         blackBox: ['ERROR'],
         error: true
       });
     } else {
       this.setState({
-        blackBox: [evaluate.toString()]
+        blackBox: [evaluate]
       });
       console.log('state is ' + typeof this.state.blackBox);
     }
