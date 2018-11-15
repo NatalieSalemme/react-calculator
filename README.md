@@ -1,44 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Calculator Screenshot](/src/images/calculator-screenshot.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+# React Calculator
 
-### `npm start`
+This project is bootstrapped using [create-react-app](https://github.com/facebook/create-react-app)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies Used:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+React & CSS
 
-### `npm test`
+## How to begin
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inside project `root` directory run `npm install`. After all dependencies are installed run `npm start`. A new browser window should open.
 
-### `npm run build`
+## Project structure
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### App.js
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+`App.js` manages the state for the whole application and handles all the functions for the app and the state is passed down via props.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Components
 
-### `npm run eject`
+The components folder contains `ButtonsList.js`, `Footer.js`, and `Title.js`. These are all functional stateless controlled presentational components. They all get their data from props passed down from App.js.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## User Stories
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+User is able to:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-Use various buttons to perform equations: All Clear, Clear, divide, multiply, subtract, add, and compute.
 
-## Learn More
+-See if there is an error, there will be a pop-up that tells the user why they received an error. User will then be able to fix it by clearing the whole display with the All Clear button, or will be able to delete the last inputted character, with the error message disappearing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-See the word "ERROR" printed on the display if they have either inputted too many characters or the calculated output is too long for the display. There will also be an error to show them
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-Get an error message if they try to enter two decimal places in a row. The error will let the user know that they are not able to enter two decimal places in a row and user will be able to enter another number or symbol

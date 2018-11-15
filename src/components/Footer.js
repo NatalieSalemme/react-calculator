@@ -7,7 +7,7 @@ const Footer = () => (
       <p>Coded by Natalie Salemme</p>
       <img src={logo} className="logo" alt="react-logo" />
       <a
-        href="https://github.com/NatalieSalemme/react-pokedex"
+        href="https://github.com/NatalieSalemme/react-calculator"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -15,7 +15,6 @@ const Footer = () => (
           className="logo"
           src={require('../images/github.png')}
           alt="Github logo"
-          href="https://github.com/NatalieSalemme/react-calculator"
         />
       </a>
     </div>
