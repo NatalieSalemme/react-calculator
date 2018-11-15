@@ -42,11 +42,18 @@ class App extends Component {
     try {
       let result = this.state.blackBox.join('');
       let evaluate = (Math.round(1000000 * eval(result)) / 1000000).toString();
+      console.log(isNaN(evaluate));
       if (evaluate.length > 13) {
         this.setState({
           blackBox: ['ERROR'],
           error: true,
           errorMessage: 'Output is too large',
+        });
+      } else if(isNaN(evaluate)) {
+        this.setState({
+          blackBox: ['ERROR'],
+          error: true,
+          errorMessage: 'Please enter an equation',
         });
       } else {
         this.setState({

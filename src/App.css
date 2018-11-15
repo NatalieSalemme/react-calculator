@@ -10,6 +10,7 @@
   margin-top: -3em;
   font-size: 40px;
   color: gray;
+  display: absolute;
 }
 .buttonsList {
   display: flex;
@@ -82,7 +83,9 @@ div > span {
 .error-message {
   text-align: center;
   color: red;
-  margin-bottom: 1em;
+  margin-top: -2em;
+  height: 4em;
+
 }
 .footer {
   margin-top: 1em;
