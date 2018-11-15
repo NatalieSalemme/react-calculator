@@ -5,6 +5,9 @@
 
 This project is bootstrapped using [create-react-app](https://github.com/facebook/create-react-app)
 
+## See a live version of this project on Codepen
+
+[Codepen](https://codepen.io/NatalieSalemme/pen/xymzvp)
 ## Technologies Used:
 
 React & CSS
