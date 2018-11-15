@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import ButtonsList from './ButtonsList';
-import Footer from './Footer';
-import Title from './Title';
+import ButtonsList from './components/ButtonsList';
+import Footer from './components/Footer';
+import Title from './components/Title';
 
 class App extends Component {
   state = {
     blackBox: [],
     error: false,
-    errorMessage: ''
+    errorMessage: '',
   };
   handleClick = e => {
     if (this.state.error) {
@@ -28,7 +28,7 @@ class App extends Component {
         this.setState({
           blackBox: ['ERROR'],
           error: true,
-          errorMessage: 'Input is too large'
+          errorMessage: 'Input is too large',
         });
         console.log('over 10');
       } else {
@@ -40,31 +40,31 @@ class App extends Component {
   };
   onEvaluate = () => {
     try {
-    let result = this.state.blackBox.join('');
-    let evaluate = (Math.round(1000000 * eval(result)) / 1000000).toString();
-    if (evaluate.length > 13) {
-      this.setState({
-        blackBox: ['ERROR'],
-        error: true,
-        errorMessage: 'Output is too large'
-      });
-    } else {
-      this.setState({
-        blackBox: [...evaluate.toString()],
-      });
-    }
-  } catch(error) {
+      let result = this.state.blackBox.join('');
+      let evaluate = (Math.round(1000000 * eval(result)) / 1000000).toString();
+      if (evaluate.length > 13) {
+        this.setState({
+          blackBox: ['ERROR'],
+          error: true,
+          errorMessage: 'Output is too large',
+        });
+      } else {
+        this.setState({
+          blackBox: [...evaluate.toString()],
+        });
+      }
+    } catch (error) {
       this.setState({
         errorMessage: error.message,
-        error: true
+        error: true,
       });
-  }
+    }
   };
   onAllClear = () => {
     this.setState({
       blackBox: [],
       error: false,
-      errorMessage: ''
+      errorMessage: '',
     });
   };
   onClear = () => {
@@ -72,7 +72,7 @@ class App extends Component {
     this.setState({
       blackBox: pop,
       error: false,
-      errorMessage: ''
+      errorMessage: '',
     });
   };
   handleDecimal = e => {
@@ -84,7 +84,7 @@ class App extends Component {
       !this.state.blackBox.includes('-')
     ) {
       this.setState({
-        errorMessage: 'Unable to enter two decimals in a row'
+        errorMessage: 'Unable to enter two decimals in a row',
       });
     } else if (this.state.blackBox.length === 0) {
       this.setState({
@@ -99,10 +99,9 @@ class App extends Component {
   render() {
     return (
       <div className="calculator-box" id="calculator" name="display">
-      <Title />
-          <p className="error-message">{this.state.errorMessage}</p>
-          <div id="display-container">
-
+        <Title />
+        <p className="error-message">{this.state.errorMessage}</p>
+        <div id="display-container">
           <span id="display">
             {this.state.blackBox.length === 0 ? '0' : this.state.blackBox}
           </span>

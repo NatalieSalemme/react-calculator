@@ -1,10 +1,10 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
-  @font-face{
- font-family:'digital-clock-font';
- src: url('digital-7.ttf');
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: 'digital-clock-font';
+  src: url('digital-7.ttf');
 }
 .title {
   margin-top: -3em;
@@ -14,16 +14,15 @@
 .buttonsList {
   display: flex;
   width: 280px;
-  height:220px;
-/*   margin-left: -2em; */
+  height: 220px;
   flex-wrap: wrap;
   padding-left: 0px;
 }
 
-#zero{
-    border-radius: 0 0 0 10px;
+#zero {
+  border-radius: 0 0 0 10px;
 }
-#equals{
+#equals {
   border-radius: 0 0 10px;
   flex-grow: 1;
 }
@@ -61,13 +60,13 @@ input {
   align-items: center;
   border-radius: 10px;
   padding-bottom: 5%;
-
 }
-.compute, #equals {
+.compute,
+#equals {
   background-color: #ffbf80;
 }
 #id {
-  color:white;
+  color: white;
 }
 .btn {
   outline: none;
@@ -78,7 +77,7 @@ input {
 div > span {
   color: white;
   font-size: 2em;
-  padding-right: .2em;
+  padding-right: 0.2em;
 }
 .error-message {
   text-align: center;
@@ -95,4 +94,7 @@ div > span {
 .logo {
   width: 45px;
   height: 45px;
+}
+.github-logo:hover {
+  cursor: pointer;
 }
