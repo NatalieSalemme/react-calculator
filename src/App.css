@@ -6,6 +6,11 @@
  font-family:'digital-clock-font';
  src: url('digital-7.ttf');
 }
+.title {
+  margin-top: -3em;
+  font-size: 40px;
+  color: gray;
+}
 .buttonsList {
   display: flex;
   width: 280px;

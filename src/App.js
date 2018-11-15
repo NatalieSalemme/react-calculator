@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import ButtonsList from './ButtonsList';
 import Footer from './Footer';
+import Title from './Title';
 
 class App extends Component {
   state = {
@@ -98,6 +99,7 @@ class App extends Component {
   render() {
     return (
       <div className="calculator-box" id="calculator" name="display">
+      <Title />
           <p className="error-message">{this.state.errorMessage}</p>
           <div id="display-container">
 
