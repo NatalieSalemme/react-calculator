@@ -1,4 +1,8 @@
-@font-face{
+* {
+    margin: 0;
+    padding: 0;
+  }
+  @font-face{
  font-family:'digital-clock-font';
  src: url('digital-7.ttf');
 }
@@ -40,7 +44,7 @@ input {
 }
 
 .calculator-box {
-  background-color: #ccc;
+  /* background-color: #ccc; */
   display: flex;
   height: 380px;
   width: 320px;
@@ -74,4 +78,16 @@ div > span {
 .error-message {
   text-align: center;
   color: red;
+  margin-bottom: 1em;
+}
+.footer {
+  margin-top: 1em;
+}
+.footer div {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 45px;
+  height: 45px;
 }

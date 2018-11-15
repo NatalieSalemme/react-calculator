@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ButtonsList from './ButtonsList';
+import Footer from './Footer';
 
 class App extends Component {
   state = {
@@ -111,6 +112,7 @@ class App extends Component {
           onClear={this.onClear}
           handleDecimal={this.handleDecimal}
         />
+        <Footer />
       </div>
     );
   }
